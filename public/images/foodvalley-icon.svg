@@ -1,0 +1,8 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Leaf/Food symbol -->
+  <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="2" fill="none" opacity="0.2"/>
+  <path d="M32 12C32 12 20 20 20 32C20 44 32 52 32 52C32 52 44 44 44 32C44 20 32 12 32 12Z" fill="currentColor" opacity="0.3"/>
+  <path d="M32 18V46" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <path d="M26 28C28 26 30 26 32 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <path d="M38 36C36 38 34 38 32 36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg>

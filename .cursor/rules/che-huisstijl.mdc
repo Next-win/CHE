@@ -1,0 +1,66 @@
+---
+description: CHE huisstijl en branding richtlijnen - altijd volgen voor consistente styling
+alwaysApply: true
+---
+
+# CHE Huisstijl Richtlijnen
+
+Dit project volgt strikt de huisstijl van de Christelijke Hogeschool Ede (CHE). **Raadpleeg altijd eerst de officiële bronnen voordat je nieuwe UI-componenten of styling ontwikkelt.**
+
+## Officiële Bronnen
+
+### 1. CHE Website
+- **URL**: https://che.nl
+- Gebruik de browser MCP tool om de website te inspecteren voor:
+  - Kleuren en kleurgebruik
+  - Typografie en lettertypes
+  - UI patronen en componenten
+  - Logo's en afbeeldingen
+
+### 2. Stijlhandboek & Assets
+- **Locatie**: `~/Downloads/impactmonitor/`
+- **Belangrijke bestanden**:
+  - `LEES_DEZE_EERST_DOOR_STIJLHANDBOEK (1).pdf` - Officieel stijlhandboek
+  - `FONTS_COMBINED.zip` - Officiële lettertypes
+  - `RGB_digitaal_gebruik_met_witte_label.png` - Regio Foodvalley logo
+  - `Strategische_Agenda_2026-2030_Regio_Foodvalley_Onderneemt_Natuurlijk_.pdf`
+
+## CHE Kleuren (officieel)
+
+```css
+--che-primary: #20315c;      /* Donkerblauw - hoofdkleur */
+--che-secondary: #aa334d;    /* Rood/roze - secundair */
+--che-tertiary: #399356;     /* Groen - accent */
+--che-quaternary: #3d89be;   /* Lichtblauw - accent */
+--che-green-light: #7ac19c;  /* Lichtgroen */
+```
+
+## CHE Typografie
+
+| Gebruik | Font | Gewicht |
+|---------|------|---------|
+| Koppen (h1, h2, h3) | Söhne Breit | Extrafett (900), uppercase |
+| Body tekst | DM Sans | Regular (400), Bold (700) |
+
+**Fonts locatie**: `/public/fonts/`
+
+## Logo's
+
+- `/public/images/che-logo.svg` - Officieel CHE logo (donker)
+- `/public/images/che-logo-white.svg` - Witte variant
+- `/public/images/regio-foodvalley-logo.png` - Partner logo
+
+## Ontwikkel Workflow
+
+1. **Check eerst** de CHE website (https://che.nl) met de browser tool
+2. **Raadpleeg** het stijlhandboek in Downloads/impactmonitor
+3. **Gebruik** alleen de officiële kleuren en fonts
+4. **Download** logo's/assets van che.nl - maak ze niet zelf
+5. **Houd** de styling consistent met bestaande componenten
+
+## ❌ Niet doen
+
+- Zelf SVG logo's maken of tekenen
+- Kleuren verzinnen of aanpassen
+- Andere fonts gebruiken dan DM Sans en Söhne Breit
+- UI patterns verzinnen zonder CHE website referentie
