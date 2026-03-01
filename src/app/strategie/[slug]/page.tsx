@@ -295,6 +295,12 @@ export interface KPIDataPoint {
   sector?: string
   companySize?: string
   successFactor?: string
+  municipality?: string
+  directGemeente?: number
+  directParticulier?: number
+  nietDirectGemeente?: number
+  nietDirectParticulier?: number
+  flexibel?: number
   rawRegion?: number
   rawNational?: number
 }
