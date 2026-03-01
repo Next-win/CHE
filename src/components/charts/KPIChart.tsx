@@ -543,7 +543,7 @@ function TimeSeriesChart({ data, unit, hasNationalData, referenceLines, title, s
               <LabelList 
                 dataKey="valueRegion" 
                 position="top" 
-                formatter={(value: number) => value.toString().replace('.', ',')}
+                formatter={(value) => String(value).replace('.', ',')}
                 style={{ fontSize: '10px', fill: '#374151', fontWeight: 500 }}
               />
             </Bar>
@@ -667,9 +667,9 @@ function CompanySizeBarChart({ data, unit, title, source, infoText }: CompanySiz
     }
   })
 
-  const formatLabel = (value: number) => {
+  const formatLabel = (value: unknown) => {
     if (unit === 'percentage') return `${value}%`
-    return value.toString()
+    return String(value)
   }
 
   const allValues = chartData.flatMap(d => [d.micro, d.klein, d.groot])
@@ -823,12 +823,7 @@ function CompanySizeBarChart({ data, unit, title, source, infoText }: CompanySiz
             }}
           />
           <Legend 
-            payload={[
-              { value: 'micro', type: 'square', color: CHE_BLAUW },
-              { value: 'klein', type: 'square', color: CHE_GROEN },
-              { value: 'groot', type: 'square', color: CHE_SECONDARY },
-            ]}
-            formatter={(value) => <span style={{ color: '#374151' }}>{sizeLabels[value as string]}</span>}
+            formatter={(value) => <span style={{ color: '#374151' }}>{sizeLabels[value as string] || value}</span>}
             wrapperStyle={{ fontSize: '12px' }}
             verticalAlign="bottom"
           />
@@ -912,9 +907,9 @@ function SuccessFactorBarChart({ data, unit, title, source, infoText }: SuccessF
     return result
   })
 
-  const formatLabel = (value: number) => {
+  const formatLabel = (value: unknown) => {
     if (unit === 'percentage') return `${value}%`
-    return value.toString()
+    return String(value)
   }
 
   const allValues = data.filter(d => successFactors.includes(d.successFactor || '')).map(d => d.valueRegion)
@@ -1072,12 +1067,7 @@ function SuccessFactorBarChart({ data, unit, title, source, infoText }: SuccessF
             }}
           />
           <Legend 
-            payload={factorKeys.map(key => ({
-              value: key,
-              type: 'square' as const,
-              color: factorColors[key],
-            }))}
-            formatter={(value) => <span style={{ color: '#374151' }}>{factorLabels[value as string]}</span>}
+            formatter={(value) => <span style={{ color: '#374151' }}>{factorLabels[value as string] || value}</span>}
             wrapperStyle={{ fontSize: '12px' }}
             verticalAlign="bottom"
           />
@@ -1126,9 +1116,9 @@ function SectorBarChart({ data, unit, title, source, infoText }: SectorBarChartP
     }
   })
 
-  const formatLabel = (value: number) => {
+  const formatLabel = (value: unknown) => {
     if (unit === 'percentage') return `${value}%`
-    return value.toString()
+    return String(value)
   }
 
   const allValues = chartData.flatMap(d => [d.latest, d.previous])
