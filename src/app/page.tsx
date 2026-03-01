@@ -68,13 +68,62 @@ const audiences = [
   },
 ]
 
+const themeIcons: Record<string, React.ReactNode> = {
+  '1.1': ( // Toekomstbestendig voedselsysteem - appel/voedsel icoon
+    <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 2c1 0 2.5.5 2.5 2s-1 2-2.5 2m0-4c-1 0-2.5.5-2.5 2s1 2 2.5 2m0-4v4m-5 2c-2.5 1.5-4 4.5-4 8 0 4 3 6 6 6 1.5 0 2.5-.5 3-1 .5.5 1.5 1 3 1 3 0 6-2 6-6 0-3.5-1.5-6.5-4-8-1-.5-2-1-3-1h-4c-1 0-2 .5-3 1z" />
+    </svg>
+  ),
+  '1.2': ( // Agrarische sector - schuur/boerderij icoon
+    <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 21h18M4 21V10l8-7 8 7v11M9 21v-6h6v6M12 3v3M7 10h2M15 10h2" />
+    </svg>
+  ),
+  '1.3': ( // Innovatief MKB - lightbulb/innovatie icoon
+    <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+    </svg>
+  ),
+  '1.4': ( // Human Capital - mensen icoon
+    <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+    </svg>
+  ),
+  '2.1': ( // Verstedelijking - gebouwen/stad icoon
+    <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+    </svg>
+  ),
+  '2.2': ( // Natuur & Water - water druppel icoon
+    <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 21c-4.5 0-7-3.5-7-7 0-4 7-11 7-11s7 7 7 11c0 3.5-2.5 7-7 7z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18c-2 0-3.5-1.5-3.5-3.5" />
+    </svg>
+  ),
+  '2.3': ( // Ruimtegebruik - kaart/grid icoon
+    <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" />
+    </svg>
+  ),
+  '2.4': ( // Energie - bliksem icoon
+    <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+    </svg>
+  ),
+  '2.5': ( // Bereikbaarheid - weg/route icoon
+    <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+    </svg>
+  ),
+}
+
 const themeCategories = [
   {
     code: '1',
     title: 'Toekomstbestendige Economie',
     themes: [
       { code: '1.1', title: 'Toekomstbestendig voedselsysteem', available: false },
-      { code: '1.2', title: 'Agrarische sector', available: false },
+      { code: '1.2', title: 'Toekomstbestendige agrarische sector', available: false },
       { code: '1.3', title: 'Innovatief MKB', available: true, slug: 'innovatief-mkb' },
       { code: '1.4', title: 'Human Capital', available: false },
     ],
@@ -174,20 +223,20 @@ export default function Home() {
               <div className={`max-w-2xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 {/* Main heading - CHE style uppercase bold */}
                 <h1 className="text-[2rem] sm:text-[2.5rem] lg:text-[3rem] xl:text-[3.5rem] leading-[1.1] text-white mb-6">
-                  DE IMPACTMONITOR REGIO FOODVALLEY
+                  IMPACTMONITOR REGIO FOODVALLEY
                 </h1>
 
                 {/* Subtitle - like CHE */}
                 <p className="text-base lg:text-lg text-white/80 mb-8 max-w-lg leading-relaxed">
-                  Volg de voortgang op de strategische doelen en ontdek data over economie, duurzaamheid en leefbaarheid.
+                  Inzicht in trends en ontwikkelingen van de Strategische Agenda Regio Foodvalley
                 </p>
 
-                {/* CTA Button - exactly like CHE red button */}
+                {/* CTA Button - like CHE red button */}
                 <Link
                   href="/strategie/innovatief-mkb"
-                  className="inline-flex items-center gap-3 px-6 py-3.5 bg-[#aa334d] text-white font-semibold rounded-lg hover:bg-[#8f2b41] transition-all duration-300 text-[15px]"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-[#aa334d] text-white font-semibold rounded-full hover:bg-[#8f2b41] transition-all duration-300 text-[15px]"
                 >
-                  Bekijk Innovatief MKB
+                  Bekijk de Impactmonitor
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
@@ -224,13 +273,15 @@ export default function Home() {
               </div>
             </div>
 
-            {/* CTA button - like CHE "Ontdek meer over CHE" */}
-            <div className="flex justify-center">
+            {/* CTA button - like CHE "Ontdek meer over CHE" with line through */}
+            <div className="flex justify-center relative">
+              {/* Horizontal line behind button */}
+              <div className="absolute top-1/2 left-0 right-0 h-px bg-gray-200 -translate-y-1/2" />
               <Link
                 href="#themas"
-                className="inline-flex items-center justify-center px-8 py-3.5 border border-gray-300 text-[#20315c] font-semibold rounded-lg hover:bg-gray-50 hover:border-gray-400 transition-all duration-300 text-[15px]"
+                className="relative z-10 inline-flex items-center justify-center px-8 py-3 bg-white border border-[#20315c]/30 text-[#20315c] font-medium rounded-full hover:bg-gray-50 hover:border-[#20315c]/50 transition-all duration-300 text-[15px]"
               >
-                Ontdek meer over de monitor
+                Ontdek meer over de Impactmonitor
               </Link>
             </div>
           </div>
@@ -239,49 +290,45 @@ export default function Home() {
         {/* ============================================
             "WIJ ZIJN ER VOOR JOU" SECTION - Like CHE audience section
         ============================================ */}
-        <section className="py-20 lg:py-28 bg-gray-50">
+        <section className="py-20 lg:py-28 bg-white">
           <div className="mx-auto max-w-[1400px] px-6">
-            <div className="flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-20">
-              {/* Left side title - like CHE */}
-              <div className="lg:w-1/3 lg:sticky lg:top-40">
-                <h2 className="text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem] text-[#399356] leading-tight mb-4">
-                  VOOR WIE IS DE MONITOR?
-                </h2>
-                <p className="text-gray-600 text-lg">
-                  Data en inzichten voor iedereen die werkt aan de toekomst van de regio.
-                </p>
-              </div>
+            {/* Same layout as WAAROM section - title left, cards right */}
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+              {/* Left side title - like CHE with light blue color */}
+              <h2 className="text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem] text-[#3d89be] leading-tight max-w-md">
+                VOOR WIE IS DE IMPACTMONITOR?
+              </h2>
 
-              {/* Right side cards - like CHE persona cards */}
-              <div className="lg:w-2/3 grid sm:grid-cols-2 gap-5">
+              {/* Right side cards - same width as features grid above */}
+              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-24 lg:max-w-2xl pt-16">
                 {audiences.map((item) => (
                   <Link
                     key={item.title}
                     href="#themas"
-                    className="group bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300"
+                    className="group relative"
                   >
-                    {/* Audience image - like CHE persona images */}
-                    <div className="aspect-[16/10] relative overflow-hidden">
+                    {/* Image that overflows above the card - portrait format like CHE */}
+                    <div className="absolute -top-16 left-4 w-[90px] h-[125px] z-10">
                       <Image
                         src={item.image}
                         alt={item.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                     </div>
                     
-                    {/* Card content */}
-                    <div className="p-5 flex items-center justify-between">
-                      <div>
-                        <h3 className="font-bold text-[#20315c] text-lg mb-1" style={{ fontFamily: 'DM Sans, sans-serif', textTransform: 'none' }}>
+                    {/* Light grey card like CHE - shorter height */}
+                    <div className="bg-[#e9eef3] h-[160px] flex flex-col justify-end p-5 pb-6 hover:bg-[#dfe5ec] transition-colors duration-300">
+                      {/* Title row with arrow */}
+                      <div className="flex items-center justify-between mb-1">
+                        <h3 className="font-bold text-[#20315c] text-[15px]" style={{ fontFamily: 'DM Sans, sans-serif', textTransform: 'none' }}>
                           {item.title}
                         </h3>
-                        <p className="text-gray-600 text-sm">{item.desc}</p>
+                        <svg className="w-5 h-5 text-[#20315c] group-hover:translate-x-1 transition-all shrink-0 ml-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+                        </svg>
                       </div>
-                      <svg className="w-5 h-5 text-gray-400 group-hover:text-[#20315c] group-hover:translate-x-1 transition-all shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                      </svg>
+                      <p className="text-gray-500 text-sm leading-snug">{item.desc}</p>
                     </div>
                   </Link>
                 ))}
@@ -295,13 +342,23 @@ export default function Home() {
         ============================================ */}
         <section id="themas" className="py-20 lg:py-28 bg-[#20315c] text-white scroll-mt-32">
           <div className="mx-auto max-w-[1400px] px-6">
-            {/* Section header - like CHE */}
-            <div className="text-center mb-12">
-              <h2 className="text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem] leading-tight mb-4">
-                STRATEGISCHE THEMA&apos;S
+            {/* Section header - like CHE, left aligned */}
+            <div className="flex flex-col lg:flex-row lg:items-start lg:gap-16 mb-12">
+              <h2 className="text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem] leading-tight mb-4 lg:mb-0 lg:w-[35%] lg:shrink-0">
+                STRATEGISCHE AGENDA
               </h2>
-              <p className="text-white/70 text-lg max-w-2xl mx-auto">
-                De Strategische Agenda 2026-2030 van Regio Foodvalley bevat 9 thema&apos;s verdeeld over twee hoofdlijnen.
+              <p className="text-white text-[14px] leading-relaxed lg:w-[65%]">
+                In Regio Foodvalley werken ondernemers, onderwijs en overheden samen aan het voedselsysteem van de toekomst. Deze ambitie is vastgelegd in de Strategische Agenda 2026-2030 en bestaat uit twee hoofdlijnen: een toekomstbestendige economie en verantwoord groeien. De Impactmonitor Regio Foodvalley geeft een zo volledig mogelijk beeld en duiding van trends en ontwikkelingen van de Strategische Agenda.
+              </p>
+            </div>
+
+            {/* Ambitie block above the two main columns */}
+            <div className="bg-white/5 backdrop-blur rounded-2xl p-6 lg:p-8 mb-6">
+              <h3 className="text-xl lg:text-2xl font-bold mb-2">
+                AMBITIE 2026-2030
+              </h3>
+              <p className="text-white text-[14px]">
+                Toonaangevend in het voedselsysteem van de toekomst
               </p>
             </div>
 
@@ -323,9 +380,7 @@ export default function Home() {
                             href={`/strategie/${theme.slug}`}
                             className="flex items-center gap-4 p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-colors group"
                           >
-                            <div className="w-10 h-10 rounded-lg bg-[#399356] flex items-center justify-center text-white font-bold text-sm shrink-0">
-                              {theme.code}
-                            </div>
+                            {themeIcons[theme.code]}
                             <div className="flex-1">
                               <div className="flex items-center gap-2">
                                 <span className="font-medium">{theme.title}</span>
@@ -339,9 +394,7 @@ export default function Home() {
                           </Link>
                         ) : (
                           <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl opacity-50">
-                            <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center text-white/60 font-bold text-sm shrink-0">
-                              {theme.code}
-                            </div>
+                            <div className="opacity-60">{themeIcons[theme.code]}</div>
                             <div className="flex-1">
                               <span className="font-medium text-white/60">{theme.title}</span>
                               <span className="block text-sm text-white/40">Binnenkort beschikbaar</span>
@@ -355,63 +408,126 @@ export default function Home() {
               ))}
             </div>
 
-            {/* CTA - like CHE "Lees meer" links */}
-            <div className="flex justify-center mt-10">
-              <Link
-                href="/over"
-                className="inline-flex items-center gap-3 px-7 py-3.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 text-[15px]"
-              >
-                Lees meer over de agenda
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </Link>
+            {/* Brede Welvaart block below the two main columns */}
+            <div className="bg-white/5 backdrop-blur rounded-2xl p-6 lg:p-8 mt-6">
+              <h3 className="text-xl lg:text-2xl font-bold mb-2">
+                BREDE WELVAART
+              </h3>
+              <p className="text-white text-[14px] mb-6">
+                In een regio waar het goed wonen, werken, recreëren en ondernemen is
+              </p>
+              
+              {/* Brede Welvaart items - with icons like CHE */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <Link
+                  href="/strategie/goed-wonen"
+                  className="flex items-center gap-4 p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-colors group"
+                >
+                  <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                  </svg>
+                  <div className="flex-1">
+                    <span className="font-medium">Goed wonen</span>
+                  </div>
+                  <svg className="w-5 h-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+                
+                <Link
+                  href="/strategie/goed-werken"
+                  className="flex items-center gap-4 p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-colors group"
+                >
+                  <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+                  </svg>
+                  <div className="flex-1">
+                    <span className="font-medium">Goed werken</span>
+                  </div>
+                  <svg className="w-5 h-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+                
+                <Link
+                  href="/strategie/goed-recreeren"
+                  className="flex items-center gap-4 p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-colors group"
+                >
+                  <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+                  </svg>
+                  <div className="flex-1">
+                    <span className="font-medium">Goed recreëren</span>
+                  </div>
+                  <svg className="w-5 h-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+                
+                <Link
+                  href="/strategie/goed-ondernemen"
+                  className="flex items-center gap-4 p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-colors group"
+                >
+                  <svg className="w-6 h-6 text-white/70 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+                  </svg>
+                  <div className="flex-1">
+                    <span className="font-medium">Goed ondernemen</span>
+                  </div>
+                  <svg className="w-5 h-5 text-white/40 group-hover:text-white group-hover:translate-x-1 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ============================================
+            "DATA-GEDREVEN BELEID" SECTION - Like CHE identity section
+        ============================================ */}
+        <section className="py-20 lg:py-28 bg-white">
+          <div className="mx-auto max-w-[1400px] px-6">
+            <div className="flex flex-col lg:flex-row lg:gap-20">
+              {/* Title left - like CHE */}
+              <div className="lg:w-[35%] lg:shrink-0 mb-8 lg:mb-0">
+                <h2 className="text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem] text-[#20315c] leading-tight">
+                  DATA-GEDREVEN BELEID VOOR DE REGIO
+                </h2>
+              </div>
+
+              {/* Content right - like CHE */}
+              <div className="lg:w-[65%]">
+                <p className="text-[#20315c] text-[15px] leading-relaxed">
+                  De Impactmonitor geeft een zo volledig mogelijk beeld en duiding van trends en ontwikkelingen van de Strategische Agenda Regio Foodvalley. Het geeft cruciale voeding aan de discussie onder de betrokkenen, waarbij economische vooruitgang wordt geplaatst in de context van andere maatschappelijke opgaven.
+                </p>
+              </div>
             </div>
           </div>
         </section>
 
         {/* ============================================
-            "PROFITEER VAN FLEXIBEL" SECTION - Feature highlight
+            "SAMENWERKEN OF VRAGEN?" CTA - Like CHE contact banner
         ============================================ */}
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="bg-[#20315c] pt-16 lg:pt-24">
           <div className="mx-auto max-w-[1400px] px-6">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              {/* Feature image - like CHE */}
-              <div className="relative">
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden relative">
-                  <Image
-                    src="/images/homepage/feature.jpg"
-                    alt="Data-gedreven beleid"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#20315c]/80 to-transparent" />
-                  <div className="absolute bottom-6 left-6 text-white">
-                    <div className="text-4xl font-bold">50+</div>
-                    <div className="text-white/80">KPI&apos;s beschikbaar</div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Content - like CHE */}
-              <div>
-                <h2 className="text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem] text-[#20315c] leading-tight mb-6">
-                  DATA-GEDREVEN BELEID VOOR DE REGIO
+            <div className="bg-[#aa334d] py-12 lg:py-16 px-8 lg:px-12">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:gap-16">
+                <h2 className="text-[1.5rem] sm:text-[1.75rem] lg:text-[2rem] text-white leading-tight mb-4 lg:mb-0 lg:w-[35%] lg:shrink-0">
+                  SAMENWERKEN OF VRAGEN?
                 </h2>
-                <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                  De Impactmonitor brengt alle relevante data over de regio samen op één plek. 
-                  Van economische groei tot duurzaamheidsindicatoren - alles overzichtelijk 
-                  gepresenteerd met interactieve visualisaties.
-                </p>
-                <Link
-                  href="/strategie/innovatief-mkb"
-                  className="inline-flex items-center gap-2 text-[#399356] font-semibold hover:gap-3 transition-all text-lg group"
-                >
-                  Bekijk de data
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </Link>
+                <div className="lg:w-[65%]">
+                  <p className="text-white/90 text-[15px] leading-relaxed mb-6">
+                    Heb je een vraag, een onderzoeksvraagstuk of wil je samenwerken? We kijken graag samen met jou naar de mogelijkheden.
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center px-6 py-3 bg-white text-[#aa334d] font-medium rounded-full hover:bg-white/90 transition-all duration-300 text-[15px]"
+                  >
+                    Neem contact op
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -422,13 +538,13 @@ export default function Home() {
         ============================================ */}
         <section className="py-20 lg:py-28 bg-[#20315c] text-white">
           <div className="mx-auto max-w-[1400px] px-6">
-            {/* Section header */}
-            <h2 className="text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem] leading-tight mb-12">
+            {/* Section header - title left aligned */}
+            <h2 className="text-[1.75rem] sm:text-[2rem] lg:text-[2.5rem] leading-tight mb-12 lg:w-[30%]">
               LAATSTE NIEUWS
             </h2>
 
-            {/* News cards carousel - like CHE */}
-            <div className="relative">
+            {/* News cards - like CHE, offset to align with title end */}
+            <div className="relative lg:ml-[30%]">
               <div 
                 ref={carouselRef}
                 className="grid md:grid-cols-3 gap-6"
@@ -437,31 +553,30 @@ export default function Home() {
                   <Link
                     key={index}
                     href={item.slug}
-                    className="group bg-[#aa334d] rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300"
+                    className="group block"
                   >
-                    {/* News image */}
-                    <div className="aspect-[16/10] relative overflow-hidden">
+                    {/* News image - fixed aspect ratio */}
+                    <div className="aspect-[4/3] relative overflow-hidden mb-0">
                       <Image
                         src={item.image}
                         alt={item.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#aa334d]/60 to-transparent" />
                     </div>
                     
-                    {/* Content */}
-                    <div className="p-5">
-                      <div className="text-white/70 text-sm mb-2">
+                    {/* Content - white background, fixed height */}
+                    <div className="bg-white p-5 pt-4 h-[180px] flex flex-col">
+                      <div className="text-[#20315c]/60 text-sm mb-2">
                         {item.type} / {item.date}
                       </div>
-                      <h3 className="text-lg font-bold leading-tight mb-4" style={{ fontFamily: 'DM Sans, sans-serif', textTransform: 'none' }}>
+                      <h3 className="text-[#20315c] text-base font-bold leading-tight mb-4 flex-1" style={{ fontFamily: 'DM Sans, sans-serif', textTransform: 'none' }}>
                         {item.title}
                       </h3>
-                      <div className="flex items-center gap-2 text-sm font-medium group-hover:gap-3 transition-all">
+                      <div className="flex items-center gap-2 text-[#20315c] text-sm font-medium group-hover:gap-3 transition-all mt-auto">
                         Meer nieuws
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
                         </svg>
                       </div>
                     </div>
@@ -469,12 +584,12 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Carousel navigation - like CHE */}
+              {/* Carousel navigation - like CHE with red buttons */}
               <div className="flex items-center justify-end gap-2 mt-8">
                 <button
                   onClick={() => scrollNews('prev')}
                   disabled={newsIndex === 0}
-                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-[#aa334d] hover:bg-[#8f2b41] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -483,7 +598,7 @@ export default function Home() {
                 <button
                   onClick={() => scrollNews('next')}
                   disabled={newsIndex >= newsItems.length - 1}
-                  className="w-10 h-10 rounded-full bg-[#aa334d] hover:bg-[#8f2b41] disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-[#aa334d] hover:bg-[#8f2b41] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -493,10 +608,12 @@ export default function Home() {
             </div>
 
             {/* CTA */}
-            <div className="flex justify-center mt-10">
+            {/* CTA button with line through - like CHE */}
+            <div className="flex justify-center mt-16 relative">
+              <div className="absolute top-1/2 left-0 right-0 h-px bg-white/20 -translate-y-1/2" />
               <Link
                 href="#"
-                className="inline-flex items-center justify-center px-8 py-3.5 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 text-[15px]"
+                className="relative z-10 inline-flex items-center justify-center px-8 py-3 bg-[#20315c] border border-white/40 text-white font-medium rounded-full hover:bg-white/10 transition-all duration-300 text-[15px]"
               >
                 Meer nieuws
               </Link>

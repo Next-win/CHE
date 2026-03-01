@@ -58,9 +58,16 @@ Dit project volgt strikt de huisstijl van de Christelijke Hogeschool Ede (CHE). 
 4. **Download** logo's/assets van che.nl - maak ze niet zelf
 5. **Houd** de styling consistent met bestaande componenten
 
+## Afbeeldingen
+
+- **Geen border-radius**: Afbeeldingen hebben ALTIJD `border-radius: 0` (geen afgeronde hoeken)
+- Gebruik `rounded-none` of geen rounded class in Tailwind
+- Dit geldt voor alle afbeeldingen, hero images, thumbnails, etc.
+
 ## ❌ Niet doen
 
 - Zelf SVG logo's maken of tekenen
 - Kleuren verzinnen of aanpassen
 - Andere fonts gebruiken dan DM Sans en Söhne Breit
 - UI patterns verzinnen zonder CHE website referentie
+- Border-radius op afbeeldingen zetten
